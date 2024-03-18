@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public float walkSpeed = 4f;
+    [SerializeField] private float walkSpeed = 4f;
 
     Vector3 forward, right;
     private float moveSpeed;
