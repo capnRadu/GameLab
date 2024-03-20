@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float maxZoom = 10f;
     [SerializeField] private float smoothTime = 0.1f;
 
+    [NonSerialized] public bool isActive = false;
+
     void Start()
     {
         targetZoom = Camera.main.orthographicSize;
@@ -20,9 +23,12 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        DragAndMove();
+        if (isActive)
+        {
+            DragAndMove();
 
-        SmoothZoom();
+            SmoothZoom();
+        }
     }
 
     private void DragAndMove()
