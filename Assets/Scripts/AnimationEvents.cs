@@ -38,5 +38,6 @@ public class AnimationEvents : MonoBehaviour
         playerOverviewPanel.SetActive(false);
         fadeImage.SetActive(false);
         FindObjectOfType<CameraController>().isActive = true;
+        FindObjectOfType<TimePassing>().isPaused = false;
     }
 }
