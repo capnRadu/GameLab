@@ -26,6 +26,7 @@ public class RadarChartUI : MonoBehaviour
 
     [SerializeField] private CanvasRenderer radarMeshCanvasRenderer;
     [SerializeField] private Material radarMaterial;
+    [SerializeField] private Texture2D radarTexture;
 
     private void Awake()
     {
@@ -92,6 +93,16 @@ public class RadarChartUI : MonoBehaviour
         vertices[productManagementVertexIndex] = productManagementVertex;
         vertices[qualityAssuranceVertexIndex] = qualityAssuranceVertex;
 
+        uv[0] = Vector2.zero;
+        uv[programmingVertexIndex] = Vector2.one;
+        uv[designVertexIndex] = Vector2.one;
+        uv[financeVertexIndex] = Vector2.one;
+        uv[marketingVertexIndex] = Vector2.one;
+        uv[dataAnalysisVertexIndex] = Vector2.one;
+        uv[humanResourcesVertexIndex] = Vector2.one;
+        uv[productManagementVertexIndex] = Vector2.one;
+        uv[qualityAssuranceVertexIndex] = Vector2.one;
+
         triangles[0] = 0;
         triangles[1] = programmingVertexIndex;
         triangles[2] = designVertexIndex;
@@ -129,6 +140,6 @@ public class RadarChartUI : MonoBehaviour
         mesh.triangles = triangles;
 
         radarMeshCanvasRenderer.SetMesh(mesh);
-        radarMeshCanvasRenderer.SetMaterial(radarMaterial, null);
+        radarMeshCanvasRenderer.SetMaterial(radarMaterial, radarTexture);
     }
 }
