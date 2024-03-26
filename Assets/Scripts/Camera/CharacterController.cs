@@ -50,9 +50,4 @@ public class CharacterController : MonoBehaviour
         transform.forward = heading;
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime);
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("col");
-    }
 }
