@@ -9,6 +9,7 @@ public class AnimationEvents : MonoBehaviour
     [SerializeField] private GameObject skillAttributionPanel;
     [SerializeField] private GameObject namesPanel;
     [SerializeField] private GameObject playerOverviewPanel;
+    [SerializeField] private GameObject introFadeImage;
 
     public void SkillSelectPanelOn()
     {
@@ -37,7 +38,17 @@ public class AnimationEvents : MonoBehaviour
     {
         playerOverviewPanel.SetActive(false);
         fadeImage.SetActive(false);
-        FindObjectOfType<CameraController>().isActive = true;
         FindObjectOfType<TimePassing>().isPaused = false;
+        EnableCamera();
+    }
+
+    public void IntroFadeOff()
+    {
+        introFadeImage.SetActive(false);
+    }
+
+    public void EnableCamera()
+    {
+        FindObjectOfType<CameraController>().isActive = true;
     }
 }

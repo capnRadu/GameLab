@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/CityGreybox.unity
+    guid: 1549e805e3a417c418178aefc01c60c6
+  - enabled: 1
+    path: Assets/Scenes/TimeMechanic.unity
+    guid: 3f1cdb3e7fe782f4c8f8eca60cddd3f6
   m_configObjects: {}

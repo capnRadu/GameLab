@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] private float walkSpeed = 4f;
+    [SerializeField] private FixedJoystick joystick;
 
     Vector3 forward, right;
     private float moveSpeed;
@@ -33,8 +35,8 @@ public class CharacterController : MonoBehaviour
     void Move()
     {
         // Movement speed
-        Vector3 rightMovement = right * moveSpeed * Input.GetAxis("Horizontal");
-        Vector3 upMovement = forward * moveSpeed * Input.GetAxis("Vertical");
+        Vector3 rightMovement = right * moveSpeed * joystick.Horizontal;
+        Vector3 upMovement = forward * moveSpeed * joystick.Vertical;
 
         // Calculate what is forward
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
@@ -47,5 +49,10 @@ public class CharacterController : MonoBehaviour
         // Smoothly move the new position
         transform.forward = heading;
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("col");
     }
 }
